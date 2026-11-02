@@ -1,25 +1,76 @@
-<mxfile host="app.diagrams.net" version="24.7.17">
-  <diagram id="screenshot-organizer" name="System Diagram">
-    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="ui" value="Desktop UI&#xa;Browse and search screenshots" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="100" y="180" width="220" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="organizer" value="Organizer Service&#xa;Tags and collections" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="440" y="180" width="220" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="storage" value="Local Storage&#xa;Screenshot files and metadata" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="780" y="180" width="220" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="ui-organizer" value="User actions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="ui" target="organizer">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="organizer-storage" value="Read / write" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;startArrow=block;startFill=1;" edge="1" parent="1" source="organizer" target="storage">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
+<mxfile host="app.diagrams.net"><diagram name="Screenshot Organizer MVP"><mxGraphModel dx="1800" dy="1370" grid="1" gridSize="10" page="1" pageWidth="1800" pageHeight="1370"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="title" value="Screenshot Organizer | MVP System Diagram" style="text;html=0;align=center;verticalAlign=middle;fontSize=40;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="150" y="15" width="1500" height="65" as="geometry"/></mxCell>
+<mxCell id="subtitle" value="Java desktop application - local images and JSON metadata - no external API" style="text;html=0;align=center;verticalAlign=middle;fontSize=23;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="150" y="80" width="1500" height="40" as="geometry"/></mxCell>
+<mxCell id="start" value="START: Launch application
+Java main()" style="ellipse;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#DCFCE7;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="650" y="140" width="500" height="90" as="geometry"/></mxCell>
+<mxCell id="load" value="Load filenames and tags from metadata.json (Gson)
+If no file exists, start with an empty collection" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="490" y="280" width="820" height="100" as="geometry"/></mxCell>
+<mxCell id="ui" value="MAIN WINDOW (Java Swing)
+Gallery previews + import button + tag panel + search field" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#DBEAFE;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="370" y="440" width="1060" height="100" as="geometry"/></mxCell>
+<mxCell id="edge2" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="900" y="230" as="sourcePoint"/><mxPoint x="900" y="280" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label2" value="Start" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="920" y="237" width="120" height="34" as="geometry"/></mxCell>
+<mxCell id="edge3" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="900" y="380" as="sourcePoint"/><mxPoint x="900" y="440" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label3" value="Restore collection and previews from local image folder" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="920" y="389" width="700" height="34" as="geometry"/></mxCell>
+<mxCell id="action0" value="IMPORT SCREENSHOTS" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#E0E7FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="60" y="640" width="360" height="65" as="geometry"/></mxCell>
+<mxCell id="process0" value="JFileChooser: select PNG/JPG
+Validate image using ImageIO" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="60" y="765" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="result0" value="Copy images into local folder
+Add filenames and empty tags" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="60" y="925" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="edge4" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="500" y="540" as="sourcePoint"/><mxPoint x="240" y="640" as="targetPoint"/><Array as="points"><mxPoint x="500" y="580"/><mxPoint x="240" y="580"/></Array></mxGeometry></mxCell>
+<mxCell id="label4" value="Click Import" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="55" y="595" width="370" height="34" as="geometry"/></mxCell>
+<mxCell id="edge5" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="240" y="705" as="sourcePoint"/><mxPoint x="240" y="765" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label5" value="User action" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="140" y="718" width="200" height="34" as="geometry"/></mxCell>
+<mxCell id="edge6" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="240" y="865" as="sourcePoint"/><mxPoint x="240" y="925" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label6" value="Apply operation" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="130" y="878" width="220" height="34" as="geometry"/></mxCell>
+<mxCell id="action1" value="MANAGE TAGS" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#E0E7FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="490" y="640" width="360" height="65" as="geometry"/></mxCell>
+<mxCell id="process1" value="Add, edit, or remove tags
+for the selected screenshot" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="490" y="765" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="result1" value="Update tags in the
+in-memory collection" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="490" y="925" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="edge7" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="750" y="540" as="sourcePoint"/><mxPoint x="670" y="640" as="targetPoint"/><Array as="points"><mxPoint x="750" y="580"/><mxPoint x="670" y="580"/></Array></mxGeometry></mxCell>
+<mxCell id="label7" value="Select image + edit tags" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="485" y="595" width="370" height="34" as="geometry"/></mxCell>
+<mxCell id="edge8" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="670" y="705" as="sourcePoint"/><mxPoint x="670" y="765" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label8" value="User action" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="570" y="718" width="200" height="34" as="geometry"/></mxCell>
+<mxCell id="edge9" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="670" y="865" as="sourcePoint"/><mxPoint x="670" y="925" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label9" value="Apply operation" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="560" y="878" width="220" height="34" as="geometry"/></mxCell>
+<mxCell id="action2" value="SEARCH BY TAG" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#E0E7FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="920" y="640" width="360" height="65" as="geometry"/></mxCell>
+<mxCell id="process2" value="Match search text against tags
+Blank search shows all images" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="920" y="765" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="result2" value="Display matching screenshots
+in the gallery" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="920" y="925" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="edge10" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1050" y="540" as="sourcePoint"/><mxPoint x="1100" y="640" as="targetPoint"/><Array as="points"><mxPoint x="1050" y="580"/><mxPoint x="1100" y="580"/></Array></mxGeometry></mxCell>
+<mxCell id="label10" value="Enter search text" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="915" y="595" width="370" height="34" as="geometry"/></mxCell>
+<mxCell id="edge11" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1100" y="705" as="sourcePoint"/><mxPoint x="1100" y="765" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label11" value="User action" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="1000" y="718" width="200" height="34" as="geometry"/></mxCell>
+<mxCell id="edge12" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1100" y="865" as="sourcePoint"/><mxPoint x="1100" y="925" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label12" value="Apply operation" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="990" y="878" width="220" height="34" as="geometry"/></mxCell>
+<mxCell id="action3" value="OPEN SCREENSHOT" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#E0E7FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="1350" y="640" width="360" height="65" as="geometry"/></mxCell>
+<mxCell id="process3" value="Load selected local image
+and display at full size" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="1350" y="765" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="result3" value="Close image viewer
+to return to the gallery" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#EFF6FF;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="1350" y="925" width="360" height="100" as="geometry"/></mxCell>
+<mxCell id="edge13" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1300" y="540" as="sourcePoint"/><mxPoint x="1530" y="640" as="targetPoint"/><Array as="points"><mxPoint x="1300" y="580"/><mxPoint x="1530" y="580"/></Array></mxGeometry></mxCell>
+<mxCell id="label13" value="Select image + Open" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="1345" y="595" width="370" height="34" as="geometry"/></mxCell>
+<mxCell id="edge14" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1530" y="705" as="sourcePoint"/><mxPoint x="1530" y="765" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label14" value="User action" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="1430" y="718" width="200" height="34" as="geometry"/></mxCell>
+<mxCell id="edge15" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1530" y="865" as="sourcePoint"/><mxPoint x="1530" y="925" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label15" value="Apply operation" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="1420" y="878" width="220" height="34" as="geometry"/></mxCell>
+<mxCell id="save" value="SAVE METADATA (Gson)
+Write filenames and tags to metadata.json after imports or tag changes" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#FEF3C7;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="60" y="1100" width="790" height="90" as="geometry"/></mxCell>
+<mxCell id="ready" value="REFRESH MAIN WINDOW
+Ready for the next user action" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;fillColor=#DCFCE7;strokeColor=#64748B;" vertex="1" parent="1"><mxGeometry x="990" y="1100" width="720" height="90" as="geometry"/></mxCell>
+<mxCell id="edge16" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="240" y="1025" as="sourcePoint"/><mxPoint x="240" y="1100" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label16" value="Save new entries" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="60" y="1045" width="300" height="34" as="geometry"/></mxCell>
+<mxCell id="edge17" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="670" y="1025" as="sourcePoint"/><mxPoint x="670" y="1100" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label17" value="Save tag changes" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="510" y="1045" width="320" height="34" as="geometry"/></mxCell>
+<mxCell id="edge18" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1100" y="1025" as="sourcePoint"/><mxPoint x="1100" y="1100" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label18" value="Results ready" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="960" y="1045" width="290" height="34" as="geometry"/></mxCell>
+<mxCell id="edge19" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1530" y="1025" as="sourcePoint"/><mxPoint x="1530" y="1100" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label19" value="Viewer closed" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="1390" y="1045" width="300" height="34" as="geometry"/></mxCell>
+<mxCell id="edge20" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="850" y="1145" as="sourcePoint"/><mxPoint x="990" y="1145" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="label20" value="Saved" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="850" y="1102" width="140" height="34" as="geometry"/></mxCell>
+<mxCell id="edge21" style="edgeStyle=none;endArrow=block;html=0;strokeColor=#475569;strokeWidth=2;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1710" y="1145" as="sourcePoint"/><mxPoint x="1430" y="490" as="targetPoint"/><Array as="points"><mxPoint x="1760" y="1145"/><mxPoint x="1760" y="490"/></Array></mxGeometry></mxCell>
+<mxCell id="label21" value="Continue" style="text;html=0;align=center;verticalAlign=middle;fontSize=20;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="1510" y="447" width="180" height="34" as="geometry"/></mxCell>
+<mxCell id="note" value="LOCAL STORAGE: screenshots/ holds imported image copies; metadata.json holds filenames and tags.
+Invalid or missing images produce a helpful message in the main window. Closing and reopening reloads the saved collection." style="text;html=0;align=center;verticalAlign=middle;fontSize=24;fontColor=#172554;" vertex="1" parent="1"><mxGeometry x="90" y="1240" width="1620" height="90" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>
